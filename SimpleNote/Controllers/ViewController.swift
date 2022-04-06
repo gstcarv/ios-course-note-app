@@ -10,8 +10,14 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var noteField: UITextView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.barStyle = .black
         
         if let savedData = UserDefaults.standard.string(forKey: "@saved_note") {
             noteField.text = savedData;
@@ -27,5 +33,6 @@ class ViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+
 }
 
